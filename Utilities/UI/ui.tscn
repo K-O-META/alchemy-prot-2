@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://nwjvkualnd0m"]
+
+[ext_resource type="Texture2D" uid="uid://d11vfswbnwfub" path="res://Entities/Potion/PotionIcons/PotionIce.png" id="1_btyj7"]
+[ext_resource type="Script" uid="uid://cd1buuq5c27eo" path="res://Utilities/UI/ui.gd" id="1_dnxun"]
+[ext_resource type="Texture2D" uid="uid://svdapisg7mpn" path="res://Entities/Potion/PotionIcons/Potion Grey.png" id="2_dnxun"]
+[ext_resource type="Texture2D" uid="uid://cg44nk4xnnyoi" path="res://Entities/Potion/PotionIcons/Potion Green.png" id="3_0um31"]
+[ext_resource type="PackedScene" uid="uid://cmbdnseeinh4o" path="res://Entities/Components/BarsComponent/health_bar.tscn" id="5_dnxun"]
+[ext_resource type="PackedScene" uid="uid://ddocek6tnuam1" path="res://Entities/Components/BarsComponent/dash_bar.tscn" id="6_0um31"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dnxun")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 992.0
+offset_right = 1032.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0, 0.247059)
+
+[node name="PotionSelectionContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 912.0
+offset_right = 1152.0
+offset_bottom = 80.0
+theme_override_constants/separation = 0
+
+[node name="PreviousPotion" type="TextureRect" parent="PotionSelectionContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("1_btyj7")
+expand_mode = 1
+
+[node name="ActualPotion" type="TextureRect" parent="PotionSelectionContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("2_dnxun")
+expand_mode = 1
+
+[node name="NextPotion" type="TextureRect" parent="PotionSelectionContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("3_0um31")
+expand_mode = 1
+
+[node name="HealthBar" parent="." instance=ExtResource("5_dnxun")]
+offset_left = -3.8147e-06
+offset_right = 76.0
+scale = Vector2(5, 5)
+
+[node name="DashBar" parent="." instance=ExtResource("6_0um31")]
+offset_left = 380.0
+offset_right = 456.0
+scale = Vector2(5, 5)
+
+[editable path="HealthBar"]
+[editable path="DashBar"]

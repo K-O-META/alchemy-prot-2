@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://tk35ol1rnprr"]
+
+[node name="EnemyTemplate" type="Node2D"]
+
+[node name="Textures" type="Node2D" parent="."]
+
+[node name="Standing" type="TextureRect" parent="Textures"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Preparing" type="TextureRect" parent="Textures"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Attacking" type="TextureRect" parent="Textures"]
+offset_right = 40.0
+offset_bottom = 40.0

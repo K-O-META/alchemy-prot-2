@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://kl20xfrkayqy"]
+
+[ext_resource type="Script" uid="uid://uybmgdbuwvq6" path="res://Entities/Player/player.gd" id="1_mv1ah"]
+[ext_resource type="Texture2D" uid="uid://b20usjje3mjjr" path="res://Entities/Player/Aiming Circle.png" id="2_3uyv8"]
+[ext_resource type="Texture2D" uid="uid://cqu68sdkj2c2x" path="res://Entities/Player/Aiming Arrow.png" id="3_lu8i8"]
+[ext_resource type="PackedScene" uid="uid://ckx3075i88n3p" path="res://Entities/Components/Health Component/health_component.tscn" id="4_tekja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix6vc"]
+size = Vector2(40, 40)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_mv1ah")
+
+[node name="PlayerColor" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ix6vc")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="AimingCircle" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(70, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3uyv8")
+
+[node name="AimingArrow" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(24, 24)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12, 60)
+texture = ExtResource("3_lu8i8")
+
+[node name="ForceBar" type="ColorRect" parent="AimingArrow"]
+custom_minimum_size = Vector2(24, 60)
+layout_mode = 0
+offset_top = -37.0
+offset_right = 24.0
+offset_bottom = 23.0
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(12, 97)
+color = Color(0.6, 0.85098, 0.917647, 1)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_tekja")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

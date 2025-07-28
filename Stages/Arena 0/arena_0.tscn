@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cej5lt2h6rhds"]
+
+[ext_resource type="PackedScene" uid="uid://kl20xfrkayqy" path="res://Entities/Player/player.tscn" id="1_g50xq"]
+[ext_resource type="PackedScene" uid="uid://nwjvkualnd0m" path="res://Utilities/UI/ui.tscn" id="2_3h73k"]
+
+[node name="Arena0" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_g50xq")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("2_3h73k")]
+player = NodePath("../../Player")
