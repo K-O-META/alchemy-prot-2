@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var ui: Control = get_parent().get_node("CanvasLayer/UI")
 @onready var dash_timer: Timer = $DashTimer
+@export var health_bar: Control
 
 @export var move_speed: float = 200.0
 @export var dash_distance: float = 100

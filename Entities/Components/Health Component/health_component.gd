@@ -2,11 +2,12 @@ class_name HealthComponent extends Node2D
 
 @export var max_health: int = 100
 var current_health: int = 100
-@onready var health_bar: Control = $BarsComponent/VBoxContainer/HealthBar
+@export var health_bar: Control
 
-"""func _ready() -> void:
-	if get_parent() is Player:
-		health_bar.visible = false"""
+func _ready() -> void:
+	var parent = get_parent()
+	if parent is Player:
+		health_bar = parent.health_bar
 
 func take_damage(essence: Enums.Essences, amount: int) -> void:
 	if has_node("ReactionComponent"):
@@ -14,4 +15,4 @@ func take_damage(essence: Enums.Essences, amount: int) -> void:
 	current_health -= amount
 	if current_health <= 0:
 		get_parent().queue_free()
-	health_bar.get_node("HPBar").scale.x = float(current_health) / max_health
+	health_bar.update_bar(current_health)

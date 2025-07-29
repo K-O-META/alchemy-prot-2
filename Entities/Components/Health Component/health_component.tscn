@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckx3075i88n3p"]
+[gd_scene load_steps=2 format=3 uid="uid://ckx3075i88n3p"]
 
 [ext_resource type="Script" uid="uid://bn74takjx60le" path="res://Entities/Components/Health Component/health_component.gd" id="1_5w70i"]
-[ext_resource type="PackedScene" uid="uid://d37ljmm4j7bp7" path="res://Entities/Components/BarsComponent/bars_component.tscn" id="2_ycayf"]
 
 [node name="HealthComponent" type="Node2D"]
 script = ExtResource("1_5w70i")
-
-[node name="BarsComponent" parent="." instance=ExtResource("2_ycayf")]
-
-[editable path="BarsComponent"]

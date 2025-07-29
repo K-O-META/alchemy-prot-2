@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmbdnseeinh4o"]
+[gd_scene load_steps=3 format=3 uid="uid://cmbdnseeinh4o"]
 
+[ext_resource type="Script" uid="uid://cs0kikv8jjbyi" path="res://Entities/Components/BarsComponent/bar_class.gd" id="1_cdccr"]
 [ext_resource type="Texture2D" uid="uid://uhnrxptepj8b" path="res://Entities/Components/BarsComponent/Icons/Heart Icon.png" id="1_xfgj4"]
 
 [node name="HealthBar" type="Control"]
@@ -9,6 +10,7 @@ anchors_preset = 0
 offset_left = -38.0
 offset_right = 38.0
 offset_bottom = 16.0
+script = ExtResource("1_cdccr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(16, 16)
