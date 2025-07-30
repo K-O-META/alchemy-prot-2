@@ -96,7 +96,6 @@ func shoot(destination: Vector2) -> void:
 # TAKING DAMAGE
 func take_damage(essence: Enums.Essences, damage: int) -> void:
 	# Placeholder for damage logic
-	print("Player took damage: ")
 	placeholder_blink_red()
 	if health_component:
 		health_component.take_damage(essence, damage)

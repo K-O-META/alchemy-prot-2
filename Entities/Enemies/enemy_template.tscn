@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://tk35ol1rnprr"]
+[gd_scene load_steps=6 format=3 uid="uid://tk35ol1rnprr"]
+
+[ext_resource type="PackedScene" uid="uid://d37ljmm4j7bp7" path="res://Entities/Components/BarsComponent/bars_component.tscn" id="1_tsfe4"]
+[ext_resource type="PackedScene" uid="uid://ckx3075i88n3p" path="res://Entities/Components/Health Component/health_component.tscn" id="2_ch1hh"]
+[ext_resource type="PackedScene" uid="uid://de65c1cmld2w6" path="res://Entities/Components/InventoryComponent/inventory_component.tscn" id="3_ch1hh"]
+[ext_resource type="PackedScene" uid="uid://b8w1jtfldeiqj" path="res://Entities/Enemies/Golem/StateMachine/golem_state_machine.tscn" id="4_1jr8p"]
+[ext_resource type="PackedScene" uid="uid://8fralk05u1st" path="res://Entities/Components/AttackComponent/attack_component.tscn" id="5_7gm0s"]
 
 [node name="EnemyTemplate" type="Node2D"]
 
@@ -15,3 +21,13 @@ offset_bottom = 40.0
 [node name="Attacking" type="TextureRect" parent="Textures"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="BarsComponent" parent="." instance=ExtResource("1_tsfe4")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_ch1hh")]
+
+[node name="InventoryComponent" parent="." instance=ExtResource("3_ch1hh")]
+
+[node name="MovingStateMachine" parent="." instance=ExtResource("4_1jr8p")]
+
+[node name="AttackComponent" parent="." instance=ExtResource("5_7gm0s")]

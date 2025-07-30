@@ -7,4 +7,6 @@ enum EssenceReaction { VULNERABLE, RESISTANT, HEALS_ME, NO_EFFECT }
 
 enum Statuses { BURN, FREEZE, STUN, BLEED }
 
-enum BARS {HEALTH, DASH }
+enum Bars {HEALTH, DASH }
+
+#enum EnemyStates { WALKING, PREPARING, ATACKING }

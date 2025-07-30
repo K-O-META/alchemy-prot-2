@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5w7crlrxmapn"]
+
+[ext_resource type="Texture2D" uid="uid://cy7xcb7ql5oxo" path="res://Entities/Enemies/Golem/golem_grey_moving.png" id="1_e8hd8"]
+[ext_resource type="Script" uid="uid://dxkxx3n0pjb6p" path="res://Entities/Enemies/Golem/golem_template.gd" id="1_k5nlr"]
+[ext_resource type="PackedScene" uid="uid://d37ljmm4j7bp7" path="res://Entities/Components/BarsComponent/bars_component.tscn" id="1_sdkkf"]
+[ext_resource type="PackedScene" uid="uid://ckx3075i88n3p" path="res://Entities/Components/Health Component/health_component.tscn" id="2_i8ld4"]
+[ext_resource type="PackedScene" uid="uid://de65c1cmld2w6" path="res://Entities/Components/InventoryComponent/inventory_component.tscn" id="3_a5b28"]
+[ext_resource type="PackedScene" uid="uid://b8w1jtfldeiqj" path="res://Entities/Enemies/Golem/StateMachine/golem_state_machine.tscn" id="4_dq6tl"]
+[ext_resource type="PackedScene" uid="uid://8fralk05u1st" path="res://Entities/Components/AttackComponent/attack_component.tscn" id="5_m2eg3"]
+[ext_resource type="PackedScene" uid="uid://cn1v1yga5oq8u" path="res://Entities/Components/ReactionComponent/reaction_component.tscn" id="6_k5nlr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8hd8"]
+radius = 48.28
+
+[node name="GolemTemplate" type="CharacterBody2D"]
+script = ExtResource("1_k5nlr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13, 0)
+shape = SubResource("CircleShape2D_e8hd8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 448.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_e8hd8")
+
+[node name="BarsComponent" parent="." instance=ExtResource("1_sdkkf")]
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("bars_component") instance=ExtResource("2_i8ld4")]
+max_health = 10
+bars_component = NodePath("../BarsComponent")
+
+[node name="ReactionComponent" parent="HealthComponent" instance=ExtResource("6_k5nlr")]
+
+[node name="InventoryComponent" parent="." instance=ExtResource("3_a5b28")]
+
+[node name="AttackComponent" parent="." instance=ExtResource("5_m2eg3")]
+
+[node name="GolemStateMachine" parent="." instance=ExtResource("4_dq6tl")]

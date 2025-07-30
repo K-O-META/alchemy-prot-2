@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8w1jtfldeiqj"]
+
+[ext_resource type="Script" uid="uid://btdkvv8taelxh" path="res://Entities/Enemies/Golem/StateMachine/moving_state.gd" id="1_hbwoo"]
+[ext_resource type="Script" uid="uid://cw8lhu0mweoul" path="res://Entities/Enemies/Golem/StateMachine/golem_state_machine.gd" id="1_opfrx"]
+[ext_resource type="Script" uid="uid://ddxgc6ljbchqc" path="res://Entities/Enemies/Golem/StateMachine/preparing_state.gd" id="2_opfrx"]
+[ext_resource type="Script" uid="uid://cb0vs6go3se01" path="res://Entities/Enemies/Golem/StateMachine/attacking_state.gd" id="3_7gc5o"]
+
+[node name="GolemStateMachine" type="Node2D"]
+script = ExtResource("1_opfrx")
+
+[node name="MovingState" type="Node2D" parent="."]
+script = ExtResource("1_hbwoo")
+
+[node name="PreparingState" type="Node2D" parent="."]
+script = ExtResource("2_opfrx")
+
+[node name="AttackingState" type="Node2D" parent="."]
+script = ExtResource("3_7gc5o")

@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://d37ljmm4j7bp7"]
+[gd_scene load_steps=2 format=3 uid="uid://d37ljmm4j7bp7"]
 
-[ext_resource type="PackedScene" uid="uid://cmbdnseeinh4o" path="res://Entities/Components/BarsComponent/health_bar.tscn" id="1_6ah1g"]
 [ext_resource type="Script" uid="uid://csdunxghjvbta" path="res://Entities/Components/BarsComponent/bars_component.gd" id="1_fs3ln"]
 
 [node name="BarsComponent" type="Control"]
@@ -15,10 +14,7 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -38.0
-offset_top = 40.0
+offset_top = 60.0
 offset_right = 38.0
-offset_bottom = 56.0
+offset_bottom = 76.0
 grow_horizontal = 2
-
-[node name="HealthBar" parent="VBoxContainer" instance=ExtResource("1_6ah1g")]
-layout_mode = 2
